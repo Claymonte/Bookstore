@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 	<title>Bookstore List</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -18,6 +19,10 @@
 			<input type="text"  class="form-control" id="fauthor" th:field="*{author}" />
 		</div>
 		<div class="form-group">
+			<label for="fyear">Year :</label>
+			<input type="text" class="form-control" id="fyear" th:field="*{year}" />
+		</div>
+		<div class="form-group">
 			<label for="fisbn">ISBN :</label>
 			<input type="text"  class="form-control" id="fisbn" th:field="*{isbn}" />
 		</div>
@@ -25,7 +30,6 @@
 			<label for="fprice">Price :</label>
 			<input type="text" class="form-control" id="fprice" th:field="*{price}" />
 		</div>
-		
 		
 		
 		<input class="btn btn-success" type="submit" value="Save book"></input>

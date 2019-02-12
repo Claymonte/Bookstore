@@ -10,23 +10,19 @@ import com.example.Bookstore.web.BookRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
-		@Bean
-	
-		public CommandLineRunner demo(BookRepository repository){
-			return (args) -> {
-				
-				repository.save(new Book("book1", "J.R.R Tolkien",0000, 123456, 20.00));
-				repository.save(new Book("book2","IT",0000,55555,25.00));
-				repository.save(new Book("book3","How to start a business",8888,11111,34.00));
-				repository.save(new Book("book4","HTML basics",4444,00000,50.00));
-		
-			
-	};
-		}
+
+	@Bean
+	public CommandLineRunner demo(BookRepository brepository) {
+		return (args) -> {
+
+			brepository.save(new Book("Hobitti", "K. Wickholm", 2018, 951-98548-9-4, 20.00));
+			brepository.save(new Book("Muumit", "K. Wickholm", 2011, 951-98548-9-3, 25.00));
+			brepository.save(new Book("Koirankasvatus", "K. Wickholm", 2015, 951-98548-9-2, 34.00));
+			brepository.save(new Book("Koodaamisen alkeet", "K. Wickholm", 1987, 951-98548-9-1, 50.00));
+
+		}; 
 	}
-
-
+}
