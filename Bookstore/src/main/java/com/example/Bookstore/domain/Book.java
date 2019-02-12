@@ -57,4 +57,23 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		/*
+		if (this.category != null)
+			return "Book [id=" + id + ", title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn
+				+ ", price=" + price + ", category=" + this.getCategory() + "]";
+		else
+		*/
+			return "Book [title=" + title + ", author=" + author + " isbn=" + isbn
+					+ ", price=" + price + "]";
+	}
+
+
+
+
+
+	
 }
+
