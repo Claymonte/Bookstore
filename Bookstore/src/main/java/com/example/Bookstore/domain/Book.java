@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Book {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String title;
 	private String author;
 	private int isbn;
@@ -60,20 +60,8 @@ public class Book {
 
 	@Override
 	public String toString() {
-		/*
-		if (this.category != null)
-			return "Book [id=" + id + ", title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn
-				+ ", price=" + price + ", category=" + this.getCategory() + "]";
-		else
-		*/
-			return "Book [title=" + title + ", author=" + author + " isbn=" + isbn
-					+ ", price=" + price + "]";
+
+		return "Book [title=" + title + ", author=" + author + " isbn=" + isbn + ", price=" + price + "]";
 	}
 
-
-
-
-
-	
 }
-
