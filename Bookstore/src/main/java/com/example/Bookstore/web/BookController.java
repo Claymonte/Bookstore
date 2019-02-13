@@ -18,58 +18,47 @@ import com.example.Bookstore.domain.Book;
 public class BookController {
 	@Autowired
 	private BookRepository repository;
-	
-		//shows all the books from the DB in a table
-	    @RequestMapping(value ="/booklist")
-	    public String bookList(Model model) {	
-	        model.addAttribute("books", repository.findAll());
-	        return "booklist";
-	    }
-	    //****to add a new book***
-	    
-	    //step 1 - create empty book object
-	    @RequestMapping(value = "/addbook")
-	    public String addStudent(Model model){
-	    	model.addAttribute("book", new Book());
-	        return "addbook";
-	    }
-	    
-	    //Step 2 - fill object with data from the form with a POST method
-	    @RequestMapping(value="/savebook",method =RequestMethod.POST)
-	    public String save(Book book){
-	    	repository.save(book);
-	    	//once the book object filled with the parameters from the form is saved to our 
-	    	//repository we redirect back to the main book list page.
-	    	return "redirect:booklist";
-	    }
-	    
-	    //delete a book
-	    //in value we take the ID
-	    @RequestMapping(value="/delete{id}",method = RequestMethod.GET)
-	    //@PathVariable indicates that a method parameter should be bound to a URI template variable
-	    public String deleteBook(@PathVariable("id")Book bookId,Model model){
-			repository.delete(bookId);
-	    	return "redirect:booklist";	
-	    }
-	    
-	    //Edit book
-	    @RequestMapping(value="/edit{id}", method =RequestMethod.GET)
-	    public String editBook(@PathVariable("id") Long bookId,Model model){
-	    	model.addAttribute("book",repository.findById(bookId));
-			return "editbook";
-	    	
-	    }
-	    
-	    @RequestMapping(value="/books", method = RequestMethod.GET)
-	    public @ResponseBody List<Book>bookListRest(){
-	    	return(List<Book>) repository.findAll();
-	    }
-	    
-	    //REST service - get book by ID
-	    @RequestMapping(value="/book/{id}", method = RequestMethod.GET)
-	    public @ResponseBody Optional<Book> findBookRest(@PathVariable("id")Long bookid){
-	    	return repository.findById(bookid);
-	    }
-	       
-	    
+
+	@RequestMapping(value = "/booklist")
+	public String bookList(Model model) {
+		model.addAttribute("books", repository.findAll());
+		return "booklist";
+	}
+
+	@RequestMapping(value = "/addbook")
+	public String addBook(Model model) {
+		model.addAttribute("book", new Book());
+		return "addbook";
+	}
+
+	@RequestMapping(value = "/savebook", method = RequestMethod.POST)
+	public String save(Book book) {
+		repository.save(book);
+		return "redirect:booklist";
+	}
+
+	@RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
+	public String deleteBook(@PathVariable("id") Book bookId, Model model) {
+		repository.delete(bookId);
+		return "redirect:booklist";
+	}
+
+	@RequestMapping(value="/edit{id}", method =RequestMethod.GET)
+    public String editBook(@PathVariable("id") Long bookId,Model model){
+    	model.addAttribute("book",repository.findById(bookId));
+		return "editbook";
+
+	}
+
+	@RequestMapping(value = "/books", method = RequestMethod.GET)
+	public @ResponseBody List<Book> bookListRest() {
+		return (List<Book>) repository.findAll();
+	}
+
+	// REST service - get book by ID
+	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
+	public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookid) {
+		return repository.findById(bookid);
+	}
+
 }

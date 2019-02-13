@@ -9,7 +9,5 @@ import com.example.Bookstore.domain.Book;
 public interface BookRepository extends CrudRepository<Book,Long> {
 	//defining query method
 	List<Book>findByTitle(String Title);
-
-
 	
 }
