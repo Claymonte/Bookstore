@@ -18,6 +18,8 @@ import com.example.Bookstore.domain.Book;
 public class BookController {
 	@Autowired
 	private BookRepository repository;
+	
+	@Autowired CategoryRepository crepository;
 
 	@RequestMapping(value = "/booklist")
 	public String bookList(Model model) {
@@ -28,6 +30,7 @@ public class BookController {
 	@RequestMapping(value = "/addbook")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
+		model.addAttribute("categorys", crepository.findAll());
 		return "addbook";
 	}
 
@@ -46,6 +49,7 @@ public class BookController {
 	@RequestMapping(value="/edit{id}", method =RequestMethod.GET)
     public String editBook(@PathVariable("id") Long bookId,Model model){
     	model.addAttribute("book",repository.findById(bookId));
+    	model.addAttribute("categorys",crepository.findAll());
 		return "editbook";
 
 	}
