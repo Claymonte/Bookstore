@@ -20,6 +20,11 @@ public class BookController {
 	private BookRepository repository;
 	
 	@Autowired CategoryRepository crepository;
+	
+	@RequestMapping(value="/index")
+	public String getIndex() {
+	return "index";
+	}
 
 	@RequestMapping(value = "/booklist")
 	public String bookList(Model model) {
