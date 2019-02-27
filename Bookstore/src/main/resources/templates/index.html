@@ -1,13 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Bookstore</title>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap-grid.min.css" th:href="@{css/bootstrap-grid.min.css}" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Bookstore</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap-grid.min.css" th:href="@{css/bootstrap-grid.min.css}" />
+
 </head>
 <body>
+<div class="container-fluid">
 <h1>Welcome to the Bookstore!</h1>
-	
+<a  class="btn btn-success" th:href="@{/booklist}">List of books</a>
+</div>
     
 </body>
 </html>
