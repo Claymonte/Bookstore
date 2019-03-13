@@ -21,6 +21,11 @@ public class BookController {
 	
 	@Autowired CategoryRepository crepository;
 	
+	 @RequestMapping(value="/login")
+	    public String login() {	
+	        return "login";
+	    }	
+	
 	@RequestMapping(value="/index")
 	public String getIndex() {
 	return "index";

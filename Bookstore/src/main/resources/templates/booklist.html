@@ -9,6 +9,14 @@
 <body>
 <div class="container-fluid">
 	<h1>Books in the store</h1>
+	<div class="col-md-4">
+		<h2 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h2>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
 	<table class="table table-striped">
 	  <tr>
 	    <th>Title </th>
@@ -29,8 +37,8 @@
 	    <td th:text="${book.category.name}"></td>
 	    
 	    
-		<td><a class="btn btn-warning" th:href="@{/edit{id}(id=${book.id})}">Edit</a></td>
-	    <td><a class="btn btn-danger" th:href="@{/delete{id}(id=${book.id})}">Delete</a></td>
+		<td sec:authorize="hasRole('ADMIN')" ><a class="btn btn-warning" th:href="@{/edit{id}(id=${book.id})}">Edit</a></td>
+	    <td sec:authorize="hasRole('ADMIN')"><a class="btn btn-danger" th:href="@{/delete{id}(id=${book.id})}">Delete</a></td>
 
 	  </tr>
 	</table>
