@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<title>Bookstore List</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -43,7 +44,7 @@
 	  </tr>
 	</table>
 	
-	<a  class="btn btn-success" th:href="@{/addbook}">Add a Book</a>
+	<a class="btn btn-success" th:href="@{/addbook}">Add a Book</a>
 </div>
 	
 	
