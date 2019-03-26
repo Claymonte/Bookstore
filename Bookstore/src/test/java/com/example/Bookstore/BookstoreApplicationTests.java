@@ -18,7 +18,7 @@ public class BookstoreApplicationTests {
 	private BookController controller;
 
 	@Test
-	public void contextLoads() throws Exception {
+	public void controllerLoads() throws Exception {
 	assertThat(controller).isNotNull();
 	}
 	}
